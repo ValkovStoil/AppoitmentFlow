@@ -1,4 +1,4 @@
-using AppoitmentFlow.API;
+using AppoitmentFlow.API.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,7 @@
 ﻿using AppoitmentFlow.API.HelperRoles;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppoitmentFlow.API
+namespace AppoitmentFlow.API.Data
 {
     public class AppDbContext: DbContext
     {
