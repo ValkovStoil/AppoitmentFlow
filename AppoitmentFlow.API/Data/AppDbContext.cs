@@ -1,4 +1,4 @@
-﻿using AppoitmentFlow.API.HelperRoles;
+﻿using AppoitmentFlow.API.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppoitmentFlow.API.Data

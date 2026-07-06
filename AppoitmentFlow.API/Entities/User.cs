@@ -1,4 +1,4 @@
-﻿namespace AppoitmentFlow.API.HelperRoles
+﻿namespace AppoitmentFlow.API.Entities
 {
     public class User
     {
