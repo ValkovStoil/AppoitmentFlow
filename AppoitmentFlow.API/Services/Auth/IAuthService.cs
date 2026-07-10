@@ -1,7 +1,10 @@
-﻿namespace AppoitmentFlow.API.Services.Auth
+﻿using AppoitmentFlow.API.DTOs.Auth;
+
+namespace AppoitmentFlow.API.Services.Auth
 {
     public interface IAuthService
     {
-        string Authetication { get; set; }
+
+        Task<RegisterResponseDTO> RegisterAsync(RegisterRequestDTO request);
     }
 }
