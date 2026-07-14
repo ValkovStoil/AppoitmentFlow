@@ -6,5 +6,7 @@ namespace AppoitmentFlow.API.Services.Auth
     {
 
         Task<RegisterResponseDTO> RegisterAsync(RegisterRequestDTO request);
+
+        Task<LoginResponseDTO>LoginAsync(LoginRequestDTO request);
     }
 }

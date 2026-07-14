@@ -18,6 +18,7 @@ namespace AppoitmentFlow.API.Services.Auth
             _passwordHasher = new PasswordHasher<User>();
         }
 
+
         public async Task<RegisterResponseDTO> RegisterAsync(RegisterRequestDTO request)
         {
             var existingUser = _context.Users
@@ -53,6 +54,11 @@ namespace AppoitmentFlow.API.Services.Auth
                 Id = user.Id,
                 Email = user.Email
                 };
+        }
+
+        public Task<LoginResponseDTO> LoginAsync(LoginRequestDTO request)
+        {
+            throw new NotImplementedException();
         }
     }
 }
