@@ -3,7 +3,7 @@ using AppoitmentFlow.API.Data;
 using AppoitmentFlow.API.DTOs.Auth;
 using AppoitmentFlow.API.Entities;
 using Microsoft.AspNetCore.Identity;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppoitmentFlow.API.Services.Auth
 {
@@ -56,9 +56,28 @@ namespace AppoitmentFlow.API.Services.Auth
                 };
         }
 
-        public Task<LoginResponseDTO> LoginAsync(LoginRequestDTO request)
+        public async Task<LoginResponseDTO> LoginAsync(LoginRequestDTO request)
         {
-            throw new NotImplementedException();
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+
+            if (user == null)
+            {
+                throw new Exception(CustomMasseges.InvalidEmailOrPasword);
+            }
+
+            var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.PaswordHash, request.Password);
+
+            if(passwordVerificationResult == PasswordVerificationResult.Failed)
+            {
+                throw new Exception(CustomMasseges.InvalidEmailOrPasword);
+            }
+
+            return new LoginResponseDTO
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Token = string.Empty
+            };
         }
     }
 }
